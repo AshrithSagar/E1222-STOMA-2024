@@ -4,3 +4,23 @@ Suppose we want to find mutually exclusive events, \( A_1, \dots, A_n \) such th
 What is the maximum possible value for \( n \).
 
 \subsection*{Solution}
+
+Let \( A_1, \dots, A_n \) be mutually exclusive events over a sample space \( S \) such that \( P(A_i) \geq 0.1, \forall i \).
+Then, we have,
+\begin{align*}
+    A_1 \cup A_2 \cup \cdots A_n
+     & \subseteq S
+    \\
+    \implies P(A_1 \cup A_2 \cup \cdots A_n)
+     & \leq P(S)
+    \\
+    \implies P(A_1) + \cdots + P(A_n)
+     & \leq 1
+\end{align*}
+Since \( P(A_i) \geq 0.1, \forall i \), we have
+\begin{align*}
+    0.1 + \cdots + 0.1 & \leq 1  \\
+    0.1n               & \leq 1  \\
+    n                  & \leq 10
+\end{align*}
+Therefore, the \underline{maximum possible value for \( n \) is 10}.
