@@ -4,3 +4,21 @@ A coin, whose probability of heads is \( p \), is tossed repeatedly till we get 
 Calculate the probability that the number of tosses needed is even.
 
 \subsection*{Solution}
+
+Let \( A \) be the event that the number of tosses needed is even.
+
+Probability of getting a tail is \( (1 - p) \).
+
+\begin{align*}
+    P(A)
+     & =
+    (1 - p)p + {(1 - p)}^3p + {(1 - p)}^5p + \ldots
+    \\ & =
+    \frac{(1 - p)p}{1 - {(1 - p)}^2}
+    =
+    \frac{(1 - p)p}{2p - p^2}
+    =
+    \boxed{
+        \frac{1 - p}{2 - p}
+    }
+\end{align*}
