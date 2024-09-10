@@ -30,4 +30,13 @@ Using the axioms of probability derive the following properties.
 
 \subsubsection*{(b) If \( A \subset B \) then \( P(A) \leq P(B) \)}
 
+\begin{proof}
+    Since \(A \subset B\), we have \(B = A \cup (B \setminus A)\).
+    Since \(A\) and \(B \setminus A\) are mutually exclusive, we have
+    \begin{equation}
+        P(B) = P(A) + P(B \setminus A) \geq P(A)
+    \end{equation}
+    and since probabilities are non-negative, the result follows.
+\end{proof}
+
 \subsubsection*{(c)}
