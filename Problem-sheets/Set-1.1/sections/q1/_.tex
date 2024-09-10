@@ -15,17 +15,17 @@ Using the axioms of probability derive the following properties.
 \subsubsection*{(a) \( P(A^c)=1 - P(A) \)}
 
 \begin{proof}
-    We know that \( A \) and \( A^c \) are mutually exclusive events. Therefore, \( A \) and \( A^c \) are disjoint sets.
-    \begin{align*}
-        A \cap A^c    & = \emptyset \\
-        P(A \cap A^c) & = 0
-    \end{align*}
-    By the axiom of probability, we have
-    \begin{align*}
-        P(A \cup A^c) & = P(A) + P(A^c) \\
-        P(A) + P(A^c) & = 1
-    \end{align*}
-    Therefore, \( P(A^c) = 1 - P(A) \).
+    The complement of \(A\) is the set of all outcomes that are not in \(A\), and is denoted by \(A^c\).
+    We have \(A^c = \Omega \setminus A\), i.e., \(A \cup A^c = \Omega \).
+    \(A\) and \(A^c\) are exhaustive events.
+    \begin{equation}
+        P \left( A \cup A^c \right) = P \left( \Omega \right) = 1
+    \end{equation}
+    Since \(A\) and \(A^c\) are mutually exclusive and events, we have
+    \begin{equation}
+        P \left( A \cup A^c \right) = P(A) + P(A^c)
+    \end{equation}
+    The result follows.
 \end{proof}
 
 \subsubsection*{(b) If \( A \subset B \) then \( P(A) \leq P(B) \)}
