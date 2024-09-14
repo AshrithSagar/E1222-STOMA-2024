@@ -7,3 +7,18 @@ After the contestant chooses a door, the host opens one of the other two doors a
 Should the contestant change her/his choice?
 
 \subsection*{Solution}
+
+The famous Monty Hall Problem.
+
+WLOG, let door 1 be picked by the contestant, and door 2 be the one revealed by the host.
+There would be three cases:
+\begin{enumerate}[itemsep=-0.5em]
+    \item C G G
+    \item G C G
+    \item G G C
+\end{enumerate}
+So, in case 2 and 3, it is better to switch, while in case 1, it is better to retain.
+Thus, the probability of winning by switching is \( \frac{2}{3} \), which is better.
+Thereby, \underline{switching is better}.
+
+There can be more analysis done in this problem, depending on how to \textit{model} the situation, as described in the Hints.
