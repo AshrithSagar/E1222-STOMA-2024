@@ -8,3 +8,37 @@ Show that its mgf is \(M_X(t) = e^{\lambda(e^t - 1)}\).
 Using this calculate \(E[X^2]\).
 
 \subsection*{Solution}
+
+Poisson random variable.
+
+The mgf is defined by \( M_X(t) = \operatorname{E}{e^{tX}} \), where \( \operatorname{E} \) denotes the expectation.
+\begin{align*}
+    M_X(t)
+     & =
+    \operatorname{E}{e^{tX}}
+    = \sum_{k=0}^{\infty} e^{tk} e^{-\lambda} \frac{\lambda^k}{k!}
+    = e^{-\lambda} \sum_{k=0}^{\infty} \frac{{(\lambda e^t)}^k}{k!}
+    \\ & =
+    e^{-\lambda} e^{\lambda e^t}
+    =
+    \boxed{
+        e^{\lambda(e^t - 1)}
+    }
+\end{align*}
+
+Differentiating the mgf twice and evaluating at \( t = 0 \) gives the second moment.
+\begin{align*}
+    M_X''(t)
+     & =
+    \frac{d^2}{dt^2} e^{\lambda(e^t - 1)}
+    =
+    \frac{d}{dt} (e^{\lambda(e^t - 1)} \lambda e^t)
+    =
+    \lambda e^{\lambda(e^t - 1) + t} (\lambda e^t + 1)
+    \\ &
+    \implies
+    E[X^2]
+    = M_X''(0)
+    = \lambda e^{\lambda(1 - 1) + 0} (\lambda + 1)
+    = \boxed{\lambda(\lambda + 1)}
+\end{align*}
