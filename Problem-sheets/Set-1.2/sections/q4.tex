@@ -7,24 +7,3 @@ Show that the probability that \(E\) occurs before \(F\) is \( P(E) / (P(E) + P(
 \subsection*{Solution}
 
 Given \( E \cap F = \phi \).
-Taking a similar approach as the previous problem, let us consider the experiment is completed at the end of the \( n \)-th trial.
-\begin{align*}
-    P(\text{n trials needed})
-     & =
-    P(\text{n trials needed} | \text{E occurs before F})
-    \\ & +
-    P(\text{n trials needed} | \text{F occurs before E})
-    \\ & =
-    {P(E)}^{n-1} \cdot P(F)
-    +
-    {P(F)}^{n-1} \cdot P(E)
-    \\
-    \implies
-    P(E \text{ occurs before } F)
-     & =
-    \sum_{n=2}^{\infty} P(\text{E occurs before F} | \text{n trials needed})
-    \\ & =
-    \sum_{n=2}^{\infty} \frac{P(\text{E occurs before F and n trials needed})}{P(\text{n trials needed})}
-    \\ & =
-    \sum_{n=2}^{\infty} \frac{{P(E)}^{n-1} \cdot P(F)}{{P(E)}^{n-1} \cdot P(F) + {P(F)}^{n-1} \cdot P(E)}
-\end{align*}
