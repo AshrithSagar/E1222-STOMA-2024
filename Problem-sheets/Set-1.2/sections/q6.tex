@@ -11,3 +11,35 @@ where \(a > 0\) is some real number.
 Now show that the probability of \(s\) calls in 4 minutes is given by \( \frac{(4a)^s e^{-4a}}{s!} \).
 
 \subsection*{Solution}
+
+Poisson process.
+
+Let \( h_4(s) \) denote the probability of receiving \( s \) calls in 4 minutes.
+Then, by decomposing \( s \) as \( k \) calls in the first 2 minutes and \( (s-k) \) calls in the next 2 minutes, we get
+\begin{equation*}
+    \boxed{
+        h_4(s) = \sum_{k=0}^{s} h_2(k) \cdot h_2(s-k)
+    }
+\end{equation*}
+Since the independence condition is given, we can express as above.
+
+With \( h_2(k) \) as given above, we have
+\begin{align*}
+    h_4(s)
+     & =
+    \sum_{k=0}^{s} \frac{{(2a)}^k e^{-2a}}{k!} \cdot \frac{{(2a)}^{s-k} e^{-2a}}{(s-k)!}
+    \\ & =
+    {(2a)}^s e^{-4a} \sum_{k=0}^{s} \frac{1}{k! (s-k)!}
+    \\ & =
+    \frac{{(2a)}^s e^{-4a}}{s!} \sum_{k=0}^{s} \frac{s!}{k! (s-k)!}
+    \\ & =
+    \frac{{(2a)}^s e^{-4a}}{s!} \sum_{k=0}^{s} \binom{s}{k}
+    \\ & =
+    \frac{{(2a)}^s e^{-4a}}{s!} \cdot 2^s
+\end{align*}
+\begin{equation*}
+    \therefore
+    \boxed{
+        h_4(s) = \frac{{(4a)}^s e^{-4a}}{s!}
+    }
+\end{equation*}
