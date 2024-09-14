@@ -1,0 +1,25 @@
+\documentclass[tikz, border=5pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\begin{tikzpicture}
+
+    \begin{axis}[
+            at={(0,0)},
+            samples=100,
+            xmin=0, xmax=2,
+            ymin=0, ymax=2,
+            restrict x to domain=0:2,
+            restrict y to domain=0:2,
+            axis lines=middle,
+            xlabel={$a$},
+            ylabel={$b$},
+            clip=false
+        ]
+        \addplot[blue, thick, domain=0:2] {0.5/x};
+        \addplot[red, thick, domain=0:2] {1-x};
+    \end{axis}
+
+\end{tikzpicture}
+\end{document}
