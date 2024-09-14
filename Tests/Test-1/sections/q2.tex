@@ -5,3 +5,32 @@ Find the probability that \(n\) tosses are needed.
 Calculate the probability that the number of tosses needed is even for the case when \(p = 0.5\).
 
 \subsection*{Solution}
+
+\begin{align*}
+    P(\text{Exactly \(n\) tosses are needed})
+     & = P(\text{First \(n-1\) tosses are heads and the \(n\)th toss is tails})
+    \\ & +
+    P(\text{First \(n-1\) tosses are tails and the \(n\)th toss is heads})
+    \\ & =
+    \boxed{
+    p^{n-1} (1-p) + {(1-p)}^{n-1} p
+    }
+\end{align*}
+\begin{align*}
+    P(\text{\(n\) is even})
+     & =
+    \sum_{k=1}^{\infty} P(\text{Exactly \(2k\) tosses are needed})
+    \\ & =
+    \sum_{k=1}^{\infty} p^{2k-1} (1-p) + {(1-p)}^{2k-1} p
+    \\ & =
+    \frac{p(1-p)}{1 - p^2} + \frac{(1-p)p}{1 - {(1-p)}^2}
+    \\ & =
+    \frac{p}{1 + p} + \frac{1-p}{2 - p}
+\end{align*}
+For \(p = 0.5\),
+\begin{align*}
+    P(\text{\(n\) is even})
+     & =
+    \frac{0.5}{1 + 0.5} + \frac{1-0.5}{2 - 0.5}
+    = \boxed{\frac{2}{3}}
+\end{align*}
