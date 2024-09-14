@@ -1,0 +1,15 @@
+\section*{Question 14}
+
+The binomial distribution can be approximated by the Poisson distribution for large \( n \).
+Consider a binomial distribution with parameters \( n \) and \( p \).
+Since, the expectation is \( n p \), if we want an approximation as \( n \) tends to infinity we need to ensure that the expectation is finite.
+So, let us write \( p_{n} \) as the probability of success when we consider \( n \) trials and let us assume that as \( n \rightarrow \infty, n p_{n} \rightarrow \lambda \).
+Noting that, as \( n \rightarrow \infty \), we have
+(i).\( \left(1-\frac{\lambda}{n}\right)^{n} \rightarrow e^{-\lambda} \),
+(ii).\( \left(1-\frac{\lambda}{n}\right)^{-k} \rightarrow 1 \),
+(iii).\( (n(n-1) \cdots(n-k+1)) /\left(n^{k}\right) \rightarrow 1 \), show that
+\begin{equation*}
+    \lim _{n \rightarrow \infty}{ }^{n} C_{k}\left(p_{n}\right)^{k}\left(1-p_{n}\right)^{n-k}=\frac{\lambda^{k}}{k!} e^{-\lambda}
+\end{equation*}
+
+\subsection*{Solution}

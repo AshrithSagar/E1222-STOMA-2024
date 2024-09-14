@@ -1,0 +1,20 @@
+\section*{Question 10}
+
+Consider the following density function (called Beta density)
+\begin{equation*}
+    f(x)=\frac{\Gamma(a+b)}{\Gamma(a) \Gamma(b)} x^{a-1}(1-x)^{b-1}, 0 \leq x \leq 1
+\end{equation*}
+where \( \Gamma(\cdot) \) is the gamma function and \( a, b \geq 1 \) are parameters.
+Show that this is a density as follows.
+By definition of gamma function, we have
+\begin{equation*}
+    \Gamma(a) \Gamma(b)=\int_{0}^{\infty} x^{a-1} e^{-x} d x \int_{0}^{\infty} y^{b-1} e^{-y} d y
+\end{equation*}
+First bring the integral over \( y \) inside the integral over \( x \).
+Now in the inner integral change the variable from \( y \) to \( t \) using \( t=y+x \).
+Now change the order of the \( x \) and \( t \) integrals so that the \( x \) integral becomes the inner integral.
+Note that this involves recomputing the limits on the integrals by considering the area over which you are integrating.
+Now, in the inner integral change the variable from \( x \) to \( s \) using \( x=t s \).
+The final expression you get can then be used to show that the above \( f(x) \) is a density.
+
+\subsection*{Solution}

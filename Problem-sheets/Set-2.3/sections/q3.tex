@@ -1,0 +1,14 @@
+\section*{Question 3}
+
+For a continuous random variable, \( X \), the real number \( a \) that satisfies \( \int_{-\infty}^{a} f_{X}(x) d x=0.5 \) is called the median of \( X \).
+Show that for a continuous random variable, \( X \), the number \( x_{0} \) that minimizes \( E\left[\left|X-x_{0}\right|\right] \) is the median of \( X \).
+
+(Hint: Split the integral of \( E\left|X-x_{0}\right| \) into two parts one for \( x \leq x_{0} \) and the other for \( x>x_{0} \) and thus get rid of absolute value inside the integral.
+You can now simplify to: \( x_{0}\left(2 F_{X}\left(x_{0}\right)-1\right)+\int_{x_{0}}^{\infty} x f_{X}(x) d x- \) \( \int_{-\infty}^{x_{0}} x f_{X}(x) d x \).
+Now you need to find the value of \( x_{0} \) for which this expression is minimized.
+You can use the Liebnitz formula for differentiating an integral:
+\begin{equation*}
+    \frac{d}{d x} \int_{h(x)}^{g(x)} f(x, t) d t=f(x, g(x)) \frac{d}{d x} g(x)-f(x, h(x)) \frac{d}{d x} h(x)+\int_{h(x)}^{g(x)} \frac{\partial}{\partial x} f(x, t) d t
+\end{equation*}
+
+\subsection*{Solution}
