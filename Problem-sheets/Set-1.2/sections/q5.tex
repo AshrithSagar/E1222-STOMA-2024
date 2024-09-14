@@ -7,3 +7,56 @@ Show that the probability that none of the \(n\) men selects his own hat is
 \]
 
 \subsection*{Solution}
+
+Derangements.
+
+Let \( A_i \) denote the event that the \( i \)-th person selects his own hat, where \( i \in \{1, 2, \dots, n\} \).
+
+Then, we can observe that
+\begin{align*}
+    P(A_i)
+     & =
+    \frac{1 \cdot (n-1)!}{n!}
+    =
+    \frac{1}{1!} \cdot \frac{1}{{}^n C_1}
+    \\
+    P(A_i \cap A_j)
+     & =
+    \frac{1 \cdot 1 \cdot (n-2)!}{n!}
+    =
+    \frac{1}{2!} \cdot \frac{1}{{}^n C_2}
+\end{align*}
+and so on.
+
+By inclusion-exclusion principle, we have
+\begin{align*}
+    P(\cup A_i)
+     & =
+    \Bigg[
+    \sum_{i} P(A_i)
+    - \sum_{i < j} P(A_i \cap A_j)
+    +
+    \sum_{i < j < k} P(A_i \cap A_j \cap A_k)
+    -
+    \cdots
+    \\ & +
+    {(-1)}^{n+1} P(A_1 \cap A_2 \cap \dots \cap A_n)
+    \Bigg]
+    \\
+     & =
+    \sum_{k=1}^{n} {(-1)}^{k-1} \cdot \cancel{{}^n C_k} \cdot \frac{1}{k!} \cdot \frac{1}{\cancel{{}^n C_k}}
+    =
+    \sum_{k=1}^{n} {(-1)}^{k-1} \frac{1}{k!}
+\end{align*}
+For the derangement, where none of the \( n \) hats go to their respective owners, we have
+\[
+    1 - P(\cup A_i)
+    =
+    \boxed{
+        \sum_{k=2}^{n} {(-1)}^k \frac{1}{k!}
+    }
+    =
+    \boxed{
+        \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} - \dots \frac{{(-1)}^n}{n!}
+    }
+\]
