@@ -1,10 +1,9 @@
 \section*{Question 7}
 
-Suppose there are three special dice, A, B, C which have the following numbers on their six faces:\\
-A: 1,1,6,6,8,8\\
-B: 2,2,4,4,9,9\\
-C: 3,3,5,5,7,7\\
-
+Suppose there are three special dice, A, B, C which have the following numbers on their six faces: \\
+A:\@ 1,1,6,6,8,8\\
+B:\@ 2,2,4,4,9,9\\
+C:\@ 3,3,5,5,7,7\\
 The dice are fair in the sense that each of the faces have the same probability of coming up.
 (i). Suppose we roll dice A and B.
 What is the probability that the number that comes up on A is less than the one that comes up on B?
@@ -16,3 +15,53 @@ Whoever gets the smaller number would pay for the dinner.
 Would you take the offer?
 
 \subsection*{Solution}
+
+\subsubsection*{(i)}
+
+Let \( P(A < B) \) denote the probability that the number that comes up on A is less than the one that comes up on B.
+Then, we have
+\begin{align*}
+    P (A < B)
+     & =
+    \frac{2}{6} \times \Big( \frac{6}{6} + \frac{2}{6} + \frac{2}{6} \Big)
+    =
+    \frac{2}{6} \times \frac{10}{6}
+    =
+    \frac{20}{36}
+    =
+    \boxed{ \frac{5}{9} }
+    >
+    \frac{1}{2}
+\end{align*}
+
+\subsubsection*{(ii)}
+
+Similarly, we have
+\begin{align*}
+    P (B < C)
+     & =
+    \frac{2}{6} \times \Big( \frac{4}{6} + \frac{4}{6} + \frac{2}{6} \Big)
+    =
+    \frac{2}{6} \times \frac{10}{6}
+    =
+    \frac{20}{36}
+    =
+    \frac{5}{9}
+    >
+    \frac{1}{2}
+    \\
+    P (C < A)
+     & =
+    \frac{2}{6} \times \Big( \frac{6}{6} + \frac{4}{6} + \frac{0}{6} \Big)
+    =
+    \frac{2}{6} \times \frac{10}{6}
+    =
+    \frac{20}{36}
+    =
+    \frac{5}{9}
+    >
+    \frac{1}{2}
+\end{align*}
+
+Thereby, picking any of the dice, there is a winning strategy for the friend, since they can pick up one of the other dice so that they can avoid paying.
+It is better to \underline{not take the offer}.
