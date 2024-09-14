@@ -1,3 +1,35 @@
 \section*{Question 14}
 
+Given below are come continuous rv distributions.
+Calculate the mean, variance and moment generating function for each and verify that they are as given.
+\begin{itemize}
+    \item Uniform: Parameters: \( a, b, b>a \).
+          \begin{equation*}
+              f_{X}(x)=\frac{1}{b-a}, a \leq x \leq b
+          \end{equation*}
+          \( E X=\frac{a+b}{2}, \operatorname{Var}(X)=\frac{(b-a)^{2}}{12}, M_{X}(s)=\frac{e^{s b}-e^{s a}}{s(b-a)} \).
+
+    \item exponential: Parameter: \( \lambda>0 \).
+          \begin{equation*}
+              f_{X}(x)=\lambda e^{-\lambda x}, x \geq 0
+          \end{equation*}
+          \( E X=\frac{1}{\lambda}, \operatorname{Var}(X)=\frac{1}{\lambda^{2}}, M_{X}(s)=\frac{\lambda}{\lambda-s}, s<\lambda \).
+
+    \item Normal: Parameters: \( \sigma>0, \mu \).
+          \begin{equation*}
+              \begin{array}{r}
+                  f_{X}(x)=\frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}},-\infty<x<\infty \\
+                  E X=\mu, \operatorname{Var}(X)=\sigma^{2}, M_{X}(s)=\exp \left[\mu s+\frac{1}{2} \sigma^{2} s^{2}\right]
+              \end{array}
+          \end{equation*}
+
+    \item gamma: Parameters: \( \alpha, \lambda>0 \).
+          \begin{equation*}
+              \begin{array}{r}
+                  f_{X}(x)=\lambda e^{-\lambda x}(\lambda x)^{\alpha-1} / \Gamma(\alpha), x \geq 0 \\
+                  E X=\frac{\alpha}{\lambda}, \operatorname{Var}(X)=\frac{\alpha}{\lambda^{2}}, M_{X}(s)=\left(\frac{\lambda}{\lambda-s}\right)^{\alpha}
+              \end{array}
+          \end{equation*}
+\end{itemize}
+
 \subsection*{Solution}

@@ -1,3 +1,14 @@
 \section*{Question 10}
 
+Let \( F \) be the distribution function of a random variable that takes values in \( \{ 0,1,2, \cdots \} \).
+Consider the following procedure (written as a pseudo-code) for determining the value of a random variable \( X \)
+\begin{enumerate}
+    \item Generate \( Z \) uniform over \( [0,1] \).
+    \item  Set \( \mathrm{k}=0 \).
+    \item  while \( Z>F(k) \) set \( k=k+1 \)
+    \item Set \( X=k \) and exit
+\end{enumerate}
+What would be the distribution function of \( X \)?
+What is the expected number of steps spent in the while loop?
+
 \subsection*{Solution}

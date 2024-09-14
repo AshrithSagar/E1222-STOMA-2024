@@ -1,3 +1,30 @@
 \section*{Question 13}
 
+Given below are some standard discrete rv distributions.
+Calculate the mean, variance and moment generating function for each and verify that they are as given.
+\begin{itemize}
+    \item Binomial: \( X \in \{ 0,1, \cdots, n \} \);
+          Parameters: \( n, p, 0 \leq p \leq 1 \)
+          \begin{equation*}
+              P[X=x]={ }^{n} C_{x} p^{x}(1-p)^{n-x}
+          \end{equation*}
+          \( E X=n p, \operatorname{Var}(X)=n p(1-p), M_{X}(s)=\left(p e^{s}+1-p\right)^{n} \).
+
+    \item Poisson: \( X \in\{0,1, \cdots\} \);
+          Parameter: \( \lambda>0 \).
+          \begin{equation*}
+              P[X=x]=e^{-\lambda} \frac{\lambda^{x}}{x!}
+          \end{equation*}
+          \( E X=\lambda, \operatorname{Var}(X)=\lambda, M_{X}(s)=\exp \left[\lambda\left(e^{s}-1\right)\right] \)
+
+    \item Geometric: \( X \in\{1,2, \cdots\} \);
+          Parameter: \( p, 0<p<1 \).
+          \begin{equation*}
+              \begin{array}{r}
+                  P[X=x]=p(1-p)^{x-1} \\
+                  E X=\frac{1}{p}, \operatorname{Var}(X)=\frac{1-p}{p^{2}}, M_{X}(s)=\frac{p e^{s}}{1-(1-p) e^{s}}
+              \end{array}
+          \end{equation*}
+\end{itemize}
+
 \subsection*{Solution}
