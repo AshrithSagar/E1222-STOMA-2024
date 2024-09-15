@@ -12,15 +12,36 @@ Calculate \(P [X > 1]\) and \(P[X > 1|Y = 1]\).
 \begin{align*}
     f_Y(y)
      & =
-    \int_{0}^{\infty} f_{XY}(x', y) \; dx'
+    \int_{0}^{\infty} f_{XY}(x, y) \; dx
     =
-    \int_{0}^{\infty} ye^{-y(1+x')} \; dx'
+    \int_{0}^{\infty} ye^{-y(1+x)} \; dx
     =
-    y e^{-y} \int_{0}^{\infty} e^{-yx'} \; dx'
+    y e^{-y} \int_{0}^{\infty} e^{-yx} \; dx
     \\ & =
-    \cancel{y} e^{-y} \frac{e^{-yx'}}{-\cancel{y}} \Bigg|_{x'=0}^{\infty}
+    \cancel{y} e^{-y} \frac{e^{-yx}}{-\cancel{y}} \Bigg|_{x=0}^{\infty}
     =
     \boxed{
         e^{-y}
+    }
+\end{align*}
+\begin{align*}
+    P[X > 1]
+     & =
+    P[X > 1, Y < \infty]
+    =
+    \int_{0}^{\infty}
+    \int_{1}^{\infty}
+    ye^{-y(1+x)} \, dx \, dy
+    \\ & =
+    \int_{0}^{\infty}
+    \cancel{y} e^{-y} \frac{e^{-yx}}{-\cancel{y}} \Bigg|_{x=1}^{\infty} \, dy
+    =
+    \int_{0}^{\infty}
+    e^{-2y} \, dy
+    =
+    \frac{e^{-2y}}{-2} \Bigg|_{y=0}^{\infty}
+    =
+    \boxed{
+        \frac{1}{2}
     }
 \end{align*}
