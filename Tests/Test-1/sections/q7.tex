@@ -9,3 +9,35 @@ where \(\operatorname{Int}(x)\) is the largest integer smaller than or equal to 
 Find the distribution of \(X\).
 
 \subsection*{Solution}
+
+\begin{equation*}
+    X = \Bigg\lfloor \frac{\log (1-U)}{\log (1-p)} \Bigg\rfloor + 1
+\end{equation*}
+\( \implies X \in \mathbb{N} \), thereby the \textit{pmf} of \( X \) is given by
+\begin{align*}
+    f_X(k)
+     & =
+    P[X=k]
+    =
+    P\Bigg[\Bigg\lfloor \frac{\log (1-U)}{\log (1-p)} \Bigg\rfloor = k-1\Bigg]
+    \\ & =
+    P\Bigg[k-1 \leq \frac{\log (1-U)}{\log (1-p)} < k \Bigg]
+    \\ & =
+    P\Bigg[(k-1) \log (1-p) \geq \log (1-U) > k \log (1-p) \Bigg]
+    \\ & =
+    P\Bigg[\log \Big({(1-p)}^{k-1}\Big) \geq \log (1-U) > \log \Big({(1-p)}^{k}\Big) \Bigg]
+    \\ & =
+    P\Bigg[{(1-p)}^{k-1} \geq 1-U > {(1-p)}^{k} \Bigg]
+    \\ & =
+    P\Bigg[\Big(1 - {(1-p)}^{k-1}\Big) \leq U < \Big(1 - {(1-p)}^{k}\Big) \Bigg]
+    \\ & =
+    \Big(1 - {(1-p)}^{k}\Big) - \Big(1 - {(1-p)}^{k-1}\Big)
+    \\ & =
+    {(1-p)}^{k-1} - {(1-p)}^{k}
+    \\ & =
+    {(1-p)}^{k-1} \Big(1 - (1-p)\Big)
+    \\ & =
+    {(1-p)}^{k-1} p
+\end{align*}
+
+\underline{\( X \) is a geometric random variable.}
