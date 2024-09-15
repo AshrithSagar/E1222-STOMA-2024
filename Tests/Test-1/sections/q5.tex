@@ -4,3 +4,41 @@ Suppose \(X\) is a random variable that takes values in the interval \([a, b]\).
 Show that \( \operatorname{Var}{(X)} \leq {(b - a)}^2/4 \).
 
 \subsection*{Solution}
+
+\newcommand{\expectation}{\operatorname{E}}
+\newcommand{\variance}{\operatorname{Var}}
+\begin{equation*}
+    \variance (X)
+    =
+    \expectation{[{(X - \expectation X)}^2]}
+    \leq
+    \expectation{[{(X - c)}^2]}, \quad \forall c
+\end{equation*}
+\begin{align*}
+     &
+    X \leq b
+    \implies
+    {(X - c)}^2 \leq {(b - c)}^2
+    \\
+    \implies
+     &
+    \expectation{[{(X - c)}^2]}
+    \leq
+    \expectation{[{(b - c)}^2]}
+    =
+    {(b - c)}^2
+    \\
+    \implies
+     &
+    \boxed{
+        \variance (X) \leq {(b - c)}^2, \quad \forall c
+    }
+\end{align*}
+Taking \( c = \cfrac{a+b}{2} \), the result follows.
+\begin{equation*}
+    \variance (X)
+    \leq
+    {\Big(b - \frac{a+b}{2} \Big)}^2
+    =
+    \frac{{(b-a)}^2}{4}
+\end{equation*}
