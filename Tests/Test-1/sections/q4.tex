@@ -13,3 +13,44 @@ Let \( Y = \frac{X}{X+1} \).
 Find \( \operatorname{Var}{(Y)} \).
 
 \subsection*{Solution}
+
+\begin{align*}
+    P[X \geq x]
+     & =
+    1 - P[X < x]
+    = 1 - F_X(x)
+    \\
+    \implies
+    F_X(x)
+     & =
+    \begin{cases}
+        0
+         &
+        \text{if } x < 0
+        \\
+        \cfrac{x}{1+x}
+         &
+        \text{if } x \geq 0
+    \end{cases}
+    \\
+    \implies
+    f_X(x)
+    =
+    \frac{d}{dx} F_X(x)
+     & =
+    \boxed{
+        \frac{1}{{(1+x)}^2},
+        \quad
+        x \geq 0
+    }
+\end{align*}
+\begin{align*}
+    P[1<X<2]
+     & =
+    F_X(2) - F_X(1)
+    \\ & =
+    \frac{2}{1+2} - \frac{1}{1+1}
+    = \boxed{
+        \frac{1}{6}
+    }
+\end{align*}
