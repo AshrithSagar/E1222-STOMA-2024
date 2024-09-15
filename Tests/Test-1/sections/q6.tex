@@ -45,3 +45,25 @@ Calculate \(P [X > 1]\) and \(P[X > 1|Y = 1]\).
         \frac{1}{2}
     }
 \end{align*}
+\begin{align*}
+    f_{X|Y}(x|y)
+     & =
+    \frac{f_{XY}(x,y)}{f_{Y}(y)}
+    =
+    \frac{ye^{-y(1+x)}}{e^{-y}}
+    =
+    ye^{-yx}
+    \\
+    \implies
+    P[X > 1 | Y = 1]
+     & =
+    \int_{1}^{\infty} f_{X|Y}(x|1) \, dx
+    =
+    \int_{1}^{\infty} e^{-x} \, dx
+    \\ & =
+    -e^{-x}\Big|_{x=1}^{\infty}
+    =
+    \boxed{
+        \frac{1}{e}
+    }
+\end{align*}
