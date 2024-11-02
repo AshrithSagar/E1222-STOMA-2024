@@ -8,3 +8,26 @@ Let \( Z=X-Y \).
 Show that \( Z \) has exponential density and that \( Z \& Y \) are independent.
 
 \subsection*{Solution}
+
+With \( Z=X-Y \), we have
+\begin{align*}
+    F_{Z}(z)
+     &
+    = P(Z\leq z)
+    = P(X-Y\leq z)
+    = P(X\leq Y+z)
+    = \int_{0}^{\infty}\int_{0}^{y+z}e^{-x}dx dy
+\end{align*}
+
+The marginal density of \( Y \) is given by
+\begin{equation*}
+    f_{Y}(y)
+    =
+    \int_{0}^{\infty}f_{X Y}(x, y)dx
+    =
+    \int_{0}^{\infty}e^{-x}dx
+    =
+    -e^{-x}\Big|_{0}^{\infty}
+    =
+    1
+\end{equation*}
