@@ -6,3 +6,10 @@ Let \( Y_{1}=\sum_{i=1}^{n} a_{i} X_{i} \) and \( Y_{2}=\sum_{i=1}^{n} b_{i} X_{
 Show that \( Y_{1} \) and \( Y_{2} \) are independent.
 
 \subsection*{Solution}
+
+Let \( \mathbf{X} = \begin{bmatrix} X_{1} \\ \vdots \\ X_{n} \end{bmatrix} \), \( \mathbf{a} = \begin{bmatrix} a_{1} \\ \vdots \\ a_{n} \end{bmatrix} \), and \( \mathbf{b} = \begin{bmatrix} b_{1} \\ \vdots \\ b_{n} \end{bmatrix} \).
+Then, \( Y_{1} = \mathbf{a}^{T} \mathbf{X} \) and \( Y_{2} = \mathbf{b}^{T} \mathbf{X} \).
+
+The mean vector of \( \mathbf{X} \) is \( \mathbf{0} \) and the covariance matrix of \( \mathbf{X} \) is \( \Sigma = \operatorname{diag}(\sigma_{1}^{2}, \dots, \sigma_{n}^{2}) \).
+
+We're given that \( \sum_{i=1}^{n} a_{i} b_{i} \sigma_{i}^{2} = 0 \), which implies that \( \mathbf{a}^{T} \Sigma \mathbf{b} = 0 \).
