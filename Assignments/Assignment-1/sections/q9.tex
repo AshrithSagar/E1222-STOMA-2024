@@ -6,3 +6,44 @@ Find the expected length of the subinterval that contains the point \( c \).
 Show that this is maximized when \( c=0.5 \).
 
 \subsection*{Solution}
+
+Let \( X \) be the point at which the interval is broken.
+Then, \( X \) is uniformly distributed over \( (0,1) \).
+Let \( Y \) be the length of the subinterval that contains the point \( c \).
+Then, \( Y = \min(X, 1-X) \).
+
+The probability density function of \( X \) is given by
+\[
+    f_{X}(x) = \begin{cases}
+        1 & 0 < x < 1        \\
+        0 & \text{otherwise}
+    \end{cases}
+\]
+
+The cumulative distribution function of \( Y \) is given by
+\begin{align*}
+    F_{Y}(y) & = P(Y \leq y)                                                       \\
+             & = P(\min(X, 1-X) \leq y)                                            \\
+             & = P(X \leq y \text{ or } 1-X \leq y)                                \\
+             & = P(X \leq y) + P(1-X \leq y) - P(X \leq y \text{ and } 1-X \leq y) \\
+             & = P(X \leq y) + P(X \geq 1-y) - P(y \leq X \leq 1-y)                \\
+             & = F_{X}(y) + F_{X}(1-y) - F_{X}(1-y)                                \\
+             & = F_{X}(y) + F_{X}(1-y) - F_{X}(y)                                  \\
+             & = F_{X}(1-y)                                                        \\
+             & = 1 - F_{X}(y)
+\end{align*}
+
+The probability density function of \( Y \) is given by
+\[
+    f_{Y}(y) = \frac{d}{dy} F_{Y}(y) = \frac{d}{dy} (1 - F_{X}(y)) = -f_{X}(y) = -1
+\]
+
+The expected length of the subinterval that contains the point \( c \) is given by
+\begin{align*}
+    E[Y] & = \int_{0}^{1} y f_{Y}(y) dy     \\
+         & = \int_{0}^{1} -y dy             \\
+         & = -\frac{y^{2}}{2} \Big|_{0}^{1} \\
+         & = -\frac{1}{2}
+\end{align*}
+
+The expected length of the subinterval that contains the point \( c \) is maximized when \( c = 0.5 \) because the expected length is symmetric about \( 0.5 \).
