@@ -8,3 +8,12 @@ Let \( X \) be a discrete random variable whose conditional mass function, condi
 Calculate \( E\left[e^{-\Lambda} \mid X=1\right] \).
 
 \subsection*{Solution}
+
+\begin{align*}
+    \implies
+    f_{\Lambda \mid X}(\lambda \mid x)
+     & =
+    \frac{f_{X \mid \Lambda}(x \mid \lambda) f_{\Lambda}(\lambda)}{f_{X}(x)}
+    =
+    \frac{\lambda^{x} e^{-\lambda} e^{-\lambda}}{x!}
+\end{align*}
