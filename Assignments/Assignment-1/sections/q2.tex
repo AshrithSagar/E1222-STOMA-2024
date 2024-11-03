@@ -13,10 +13,8 @@ Since \( X, Y \) are independent, we have that
     f_{XY}(x, y)
     =
     f_{X}(x) f_{Y}(y)
-    =
-    \frac{1}{2} \mathbf{1}_{(0,2)}(x) f_{Y}(y)
 \end{equation*}
-where \( f_{Y}(y) \) is the pmf of \( Y \).
+where \( f_{X}(x) \) is the probability density function of \( X \) and \( f_{Y}(y) \) is the probability mass function of \( Y \).
 Now, we can find the distribution function of \( Z \) as follows
 \begin{align*}
     F_{Z}(z)
@@ -25,34 +23,114 @@ Now, we can find the distribution function of \( Z \) as follows
     =
     P[X+Y \leq z]
     \\ & =
-    \int_{-\infty}^{\infty} \int_{-\infty}^{z-x} f_{XY}(x, y) \, dy \, dx
+    \sum_{y=0}^{\infty} P[X+Y \leq z \mid Y=y] P[Y=y]
     \\ & =
-    \int_{0}^{2} \int_{0}^{z-x} \frac{1}{2} \mathbf{1}_{(0,2)}(x) f_{Y}(y) \, dy \, dx
-    \\ & =
-    \int_{0}^{2} \frac{1}{2} \mathbf{1}_{(0,2)}(x) \int_{0}^{z-x} f_{Y}(y) \, dy \, dx
-    \\ & =
-    \int_{0}^{2} \frac{1}{2} \mathbf{1}_{(0,2)}(x) F_{Y}(z-x) \, dx
-    \\ & =
-    \int_{0}^{2} \frac{1}{2} \mathbf{1}_{(0,2)}(x) \sum_{y=0}^{\lfloor z-x \rfloor} f_{Y}(y) \, dx
-    \\ & =
-    \frac{1}{2} \int_{0}^{2} \sum_{y=0}^{\lfloor z-x \rfloor} f_{Y}(y) \, dx
-    \\ & =
-    \frac{1}{2} \sum_{y=0}^{\lfloor z \rfloor} \int_{0}^{2} f_{Y}(y) \, dx
-    \\ & =
-    \frac{1}{2} \sum_{y=0}^{\lfloor z \rfloor} 1
-    =
-    \frac{1}{2} \lfloor z \rfloor
+    \sum_{y=0}^{\infty} P[X \leq z-y] P[Y=y]
 \end{align*}
 
-Now, we can find the density function of \( Z \) as follows
+Now, we can see that
+\begin{equation*}
+    F_{X}(x)
+    =
+    P[X \leq x]
+    =
+    \begin{cases}
+        0           & x < 0        \\
+        \frac{x}{2} & 0 \leq x < 2 \\
+        1           & x \geq 2
+    \end{cases}
+\end{equation*}
+
+Now, for \( z \leq 0 \), we have
 \begin{align*}
-    f_{Z}(z)
+    F_{Z}(z)
      & =
-    \frac{d}{dz} F_{Z}(z)
-    =
-    \frac{d}{dz} \left( \frac{1}{2} \lfloor z \rfloor \right)
-    =
-    \frac{1}{2} \delta(z)
+    \cancel{P[X \leq z]} P[Y = 0]
+    +
+    \cancel{P[X \leq z-1]} P[Y = 1]
+    \\ & \qquad +
+    \cancel{P[X \leq z-2]} P[Y = 2]
+    +
+    \ldots
+    \\
+    \implies
+    F_{Z}(z)
+     & =
+    0
 \end{align*}
 
-Thus, we have that \( Z \) is a continuous random variable.
+Now, for \( z \in [0, 1] \), we have
+\begin{align*}
+    F_{Z}(z)
+     & =
+    P[X \leq z] P[Y = 0]
+    +
+    \cancel{P[X \leq z-1]} P[Y = 1]
+    +
+    \ldots
+    \\ & =
+    \frac{z}{2} \cdot P[Y = 0]
+\end{align*}
+
+Now, for \( z \in [1, 2] \), we have
+\begin{align*}
+    F_{Z}(z)
+     & =
+    P[X \leq z] P[Y = 0]
+    +
+    P[X \leq z-1] P[Y = 1]
+    \\ & \qquad +
+    \cancel{P[X \leq z-2]} P[Y = 2]
+    +
+    \cancel{P[X \leq z-3]} P[Y = 3]
+    +
+    \ldots
+    \\ & =
+    \frac{z}{2} \cdot P[Y = 0]
+    +
+    \frac{z-1}{2} \cdot P[Y = 1]
+\end{align*}
+
+Now, for \( z \in [2, 3] \), we have
+\begin{align*}
+    F_{Z}(z)
+     & =
+    P[X \leq z] P[Y = 0]
+    +
+    P[X \leq z-1] P[Y = 1]
+    \\ & \qquad +
+    P[X \leq z-2] P[Y = 2]
+    +
+    \cancel{P[X \leq z-3]} P[Y = 3]
+    +
+    \ldots
+    \\ & =
+    1 \cdot P[Y = 0]
+    +
+    \frac{z-1}{2} \cdot P[Y = 1]
+    +
+    \frac{z-2}{2} \cdot P[Y = 2]
+\end{align*}
+
+Now, for \( z \in [3, 4] \), we have
+\begin{align*}
+    F_{Z}(z)
+     & =
+    P[X \leq z] P[Y = 0]
+    +
+    P[X \leq z-1] P[Y = 1]
+    \\ & \qquad +
+    P[X \leq z-2] P[Y = 2]
+    +
+    P[X \leq z-3] P[Y = 3]
+    +
+    \ldots
+    \\ & =
+    1 \cdot P[Y = 0]
+    +
+    1 \cdot P[Y = 1]
+    +
+    \frac{z-2}{2} \cdot P[Y = 2]
+    +
+    \frac{z-3}{2} \cdot P[Y = 3]
+\end{align*}
