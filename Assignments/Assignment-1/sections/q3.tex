@@ -9,20 +9,8 @@ Will this result remain true if \( E X_{i}=\mu_{i} \) and \( \operatorname{Var}\
 
 In the first case, we have that the mean of each random variable is zero and the variance is unity, i.e., \( E X_{i}=0 \) and \( \operatorname{Var}\left(X_{i}\right)=1, \forall i \).
 We have that the correlation coefficient between any pair of random variables, \( X_{i} \) and \( X_{j}, i \neq j \), is \( \rho \).
-\begin{equation*}
-    \implies
-    \rho
-    =
-    \frac{\operatorname{Cov}\left(X_{i}, X_{j}\right)}{\sqrt{\operatorname{Var}\left(X_{i}\right) \operatorname{Var}\left(X_{j}\right)}}
-    =
-    \operatorname{Cov}\left(X_{i}, X_{j}\right)
-    =
-    E\left(X_{i} - \cancel{E X_{i}}\right)\left(X_{j} - \cancel{E X_{j}}\right)
-    =
-    E X_{i} X_{j}
-\end{equation*}
 
-Now, we can find the variance of the sum of the random variables as follows
+Consider the variance of the sum of the random variables as follows,
 \begin{align*}
     \operatorname{Var}\left(\sum_{i=1}^{n} X_{i}\right)
      & =
