@@ -134,3 +134,32 @@ Now, for \( z \in [3, 4] \), we have
     +
     \frac{z-3}{2} \cdot P[Y = 3]
 \end{align*}
+
+Similarly, we can see that for \( z \in [n, n+1] \), we have
+\begin{align*}
+    F_{Z}(z)
+     & =
+    \sum_{y=0}^{n-2} P[Y = y]
+    +
+    \frac{z-n+1}{2} P[Y = n-1]
+    +
+    \frac{z-n}{2} P[Y = n]
+\end{align*}
+
+From this, it is possible to calculate the probability density function (pdf) of \( Z \) as
+\begin{align*}
+    f_{Z}(z)
+     & =
+    \frac{d}{dz} F_{Z}(z)
+    =
+    \begin{cases}
+        0                                           & z < 0        \\
+        \frac{1}{2} P[Y = 0]                        & 0 \leq z < 1 \\
+        \frac{1}{2} P[Y = 0] + \frac{1}{2} P[Y = 1] & 1 \leq z < 2 \\
+        \frac{1}{2} P[Y = 1] + \frac{1}{2} P[Y = 2] & 2 \leq z < 3 \\
+        \frac{1}{2} P[Y = 2] + \frac{1}{2} P[Y = 3] & 3 \leq z < 4 \\
+        \ldots
+    \end{cases}
+\end{align*}
+
+Thereby, we can see that the random variable \underline{\( Z \) is a continuous random variable}.
