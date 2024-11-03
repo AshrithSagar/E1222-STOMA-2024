@@ -6,3 +6,53 @@ Let \( Z=X+Y \).
 Show that \( Z \) is a continuous random variable.
 
 \subsection*{Solution}
+
+We have that \( X \sim U(0,2) \) and \( Y \) is a discrete random variable, taking non-negative integer values.
+Since \( X, Y \) are independent, we have that
+\begin{equation*}
+    f_{XY}(x, y)
+    =
+    f_{X}(x) f_{Y}(y)
+    =
+    \frac{1}{2} \mathbf{1}_{(0,2)}(x) f_{Y}(y)
+\end{equation*}
+where \( f_{Y}(y) \) is the pmf of \( Y \).
+Now, we can find the distribution function of \( Z \) as follows
+\begin{align*}
+    F_{Z}(z)
+     & =
+    P[Z \leq z]
+    =
+    P[X+Y \leq z]
+    \\ & =
+    \int_{-\infty}^{\infty} \int_{-\infty}^{z-x} f_{XY}(x, y) \, dy \, dx
+    \\ & =
+    \int_{0}^{2} \int_{0}^{z-x} \frac{1}{2} \mathbf{1}_{(0,2)}(x) f_{Y}(y) \, dy \, dx
+    \\ & =
+    \int_{0}^{2} \frac{1}{2} \mathbf{1}_{(0,2)}(x) \int_{0}^{z-x} f_{Y}(y) \, dy \, dx
+    \\ & =
+    \int_{0}^{2} \frac{1}{2} \mathbf{1}_{(0,2)}(x) F_{Y}(z-x) \, dx
+    \\ & =
+    \int_{0}^{2} \frac{1}{2} \mathbf{1}_{(0,2)}(x) \sum_{y=0}^{\lfloor z-x \rfloor} f_{Y}(y) \, dx
+    \\ & =
+    \frac{1}{2} \int_{0}^{2} \sum_{y=0}^{\lfloor z-x \rfloor} f_{Y}(y) \, dx
+    \\ & =
+    \frac{1}{2} \sum_{y=0}^{\lfloor z \rfloor} \int_{0}^{2} f_{Y}(y) \, dx
+    \\ & =
+    \frac{1}{2} \sum_{y=0}^{\lfloor z \rfloor} 1
+    =
+    \frac{1}{2} \lfloor z \rfloor
+\end{align*}
+
+Now, we can find the density function of \( Z \) as follows
+\begin{align*}
+    f_{Z}(z)
+     & =
+    \frac{d}{dz} F_{Z}(z)
+    =
+    \frac{d}{dz} \left( \frac{1}{2} \lfloor z \rfloor \right)
+    =
+    \frac{1}{2} \delta(z)
+\end{align*}
+
+Thus, we have that \( Z \) is a continuous random variable.
