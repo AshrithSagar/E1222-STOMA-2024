@@ -1,4 +1,6 @@
 \section*{Question 1}
+\setcounter{section}{1}
+\setcounter{equation}{0}
 
 Let \( X, Y \) be iid geometric random variables with parameter \( p \).
 (The geometric pmf is: \( f_{X}(k)=f_{Y}(k)={(1-p)}^{k-1} p, k=1,2, \dots \)).
@@ -7,3 +9,99 @@ Find the joint mass function of \( Z, W \).
 Show that \( Z, W \) are independent.
 
 \subsection*{Solution}
+
+The joint mass function of \( Z, W \) is given by
+\begin{equation*}
+    f_{ZW}(z, w)
+    =
+    P[Z=z, W=w]
+    =
+    P[X-Y=z, \min (X, Y)=w]
+\end{equation*}
+Now, we can see that
+\begin{equation}
+    [\min (X, Y)=w]
+    =
+    [X=w, Y>w] \cup [X>w, Y=w] \cup [X=w, Y=w]
+\end{equation}
+which are disjoint events.
+Thereby, we have
+\begin{align*}
+    f_{ZW}(z, w)
+     & =
+    P[X-Y=z, \min (X, Y)=w]
+    \\ & =
+    P[X-Y=z, X=w, Y>w]
+    + P[X-Y=z, X>w, Y=w]
+    \\ & \qquad
+    + P[X-Y=z, X=w, Y=w]
+    \\ & =
+    P[X=w, Y=w-z]
+    + P[X=w+z, Y=w]
+    + P[X=w, Y=w]
+    \\ & =
+    P[X=w] P[Y=w-z]
+    + P[X=w+z] P[Y=w]
+    + P[X=w] P[Y=w]
+    \\ & =
+    f_{X}(w) f_{Y}(w-z)
+    + f_{X}(w+z) f_{Y}(w)
+    + f_{X}(w) f_{Y}(w)
+    \\ & =
+    {(1-p)}^{w-1} p {(1-p)}^{w-z-1} p
+    + {(1-p)}^{w+z-1} p {(1-p)}^{w-1} p
+    \\ & \qquad
+    + {(1-p)}^{w-1} p {(1-p)}^{w-1} p
+    \\ & =
+    {(1-p)}^{2w-1} p^{2} {(1-p)}^{-z}
+    + {(1-p)}^{2w-1} p^{2} {(1-p)}^{z}
+    + {(1-p)}^{2w-2} p^{2}
+    \\ & =
+    {(1-p)}^{2w-2} p^{2} \left( {(1-p)}^{-z} + {(1-p)}^{z} + 1 \right)
+\end{align*}
+
+Now, we can see that
+\begin{align*}
+    \implies
+    f_{Z}(z)
+     & =
+    \sum_{w=1}^{\infty} f_{ZW}(z, w)
+    \\ & =
+    \sum_{w=1}^{\infty} {(1-p)}^{2w-2} p^{2} \left( {(1-p)}^{-z} + {(1-p)}^{z} + 1 \right)
+    \\ & =
+    p^{2} \left( {(1-p)}^{-z} + {(1-p)}^{z} + 1 \right) \sum_{w=1}^{\infty} {(1-p)}^{2w-2}
+    \\ & =
+    p^{2} \left( {(1-p)}^{-z} + {(1-p)}^{z} + 1 \right) \sum_{w=0}^{\infty} {(1-p)}^{2w}
+    \\ & =
+    p^{2} \left( {(1-p)}^{-z} + {(1-p)}^{z} + 1 \right) \frac{1}{{1-(1-p)^{2}}}
+    \\ & =
+    p^{2} \left( {(1-p)}^{-z} + {(1-p)}^{z} + 1 \right) \frac{1}{2p-p^{2}}
+    \\ & =
+    \frac{p}{2-p} \left( {(1-p)}^{-z} + {(1-p)}^{z} + 1 \right)
+    \\
+    \implies
+    f_{W}(w)
+     & =
+    \sum_{z=-\infty}^{\infty} f_{ZW}(z, w)
+    \\ & =
+    \sum_{z=-\infty}^{\infty} {(1-p)}^{2w-2} p^{2} \left( {(1-p)}^{-z} + {(1-p)}^{z} + 1 \right)
+    \\ & =
+    p^{2} {(1-p)}^{2w-2} \left( \sum_{z=-\infty}^{\infty} {(1-p)}^{-z} + \sum_{z=-\infty}^{\infty} {(1-p)}^{z} + \sum_{z=-\infty}^{\infty} 1 \right)
+    \\ & =
+    p^{2} {(1-p)}^{2w-2} \left( \frac{1}{1-(1-p)} + \frac{1}{1-(1-p)} \right)
+    \\ & =
+    p^{2} {(1-p)}^{2w-2} \left( \frac{1}{p} + \frac{1}{p} \right)
+    \\ & =
+    2 p {(1-p)}^{2w-2}
+\end{align*}
+
+Now, we can see that
+\begin{align*}
+    f_{Z}(z) f_{W}(w)
+     & =
+    \frac{p}{2-p} \left( {(1-p)}^{-z} + {(1-p)}^{z} + 1 \right) 2 p {(1-p)}^{2w-2}
+    \\ & =
+    \frac{2p^{2}}{2-p} {(1-p)}^{2w-2} \left( {(1-p)}^{-z} + {(1-p)}^{z} + 1 \right)
+    \\ & =
+    \frac{2p^{2}}{2-p} f_{ZW}(z, w)
+\end{align*}
