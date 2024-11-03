@@ -9,3 +9,50 @@ Show that \( X \) and \( Y \) are independent if and only if they are uncorrelat
 (Hint: First consider the special case where \( x_{1}=y_{1}=0 \) and \( x_{2}=y_{2}= \) 1).
 
 \subsection*{Solution}
+
+Two random variables \( X \) and \( Y \) are independent if and only if for all \( x, y \) we have
+\begin{equation*}
+    P[X=x, Y=y]
+    =
+    P[X=x] P[Y=y]
+\end{equation*}
+Two random variables \( X \) and \( Y \) are uncorrelated if and only if
+\begin{equation*}
+    \operatorname{Cov}(X, Y)
+    =
+    E(XY) - E(X)E(Y)
+    =
+    0
+\end{equation*}
+Now, for the given problem, we consider the special case where \( x_{1}=y_{1}=0 \) and \( x_{2}=y_{2}=1 \).
+First, given that \( X \) and \( Y \) are uncorrelated, we want to show that they are independent.
+\begin{align*}
+    \operatorname{Cov}(X, Y)
+     & =
+    E(XY) - E(X)E(Y)
+    =
+    0
+    \\
+    \implies
+    E(XY)
+     & =
+    E(X)E(Y)
+    \\
+    \implies
+    \sum_{x} \sum_{y} x y P[X=x, Y=y]
+     & =
+    \left( \sum_{x} x P[X=x] \right) \left( \sum_{y} y P[Y=y] \right)
+    \\
+    \implies
+    1 \cdot 1 \cdot P[X=1, Y=1]
+     & =
+    (0 \cdot p_{1} + 1 \cdot (1-p_{1}))
+    (0 \cdot p_{2} + 1 \cdot (1-p_{2}))
+    \\
+    \implies
+    P[X=1, Y=1]
+     & =
+    (1-p_{1})(1-p_{2})
+    =
+    P[X=1] P[Y=1]
+\end{align*}
