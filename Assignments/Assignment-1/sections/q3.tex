@@ -62,3 +62,31 @@ Thus, we have
     }
     , \quad \text{for } (n - 1) > 0
 \end{align*}
+In the second case, we have that the mean of each random variable is \( \mu_{i} \) and the variance is \( \sigma_{i}^{2} \), i.e., \( E X_{i}=\mu_{i} \) and \( \operatorname{Var}\left(X_{i}\right)=\sigma_{i}^{2}, \forall i \).
+We have that the correlation coefficient between any pair of random variables, \( X_{i} \) and \( X_{j}, i \neq j \), is \( \rho \).
+\begin{equation*}
+    \implies
+    \rho
+    =
+    \frac{\operatorname{Cov}\left(X_{i}, X_{j}\right)}{\sqrt{\operatorname{Var}\left(X_{i}\right) \operatorname{Var}\left(X_{j}\right)}}
+    =
+    \frac{(E X_{i} X_{j}) - (E X_{i})(E X_{j})}{\sqrt{\sigma_{i}^{2} \sigma_{j}^{2}}}
+    \implies
+    \operatorname{Cov}\left(X_{i}, X_{j}\right)
+    =
+    \rho \sqrt{\sigma_{i}^{2} \sigma_{j}^{2}}
+\end{equation*}
+
+Consider the variance of the sum of the random variables as follows,
+\begin{align*}
+    \operatorname{Var}\left(\sum_{i=1}^{n} X_{i}\right)
+     & =
+    \sum_{i=1}^{n} \operatorname{Var}\left(X_{i}\right)
+    + 2 \sum_{i=1}^{n} \sum_{j=i+1}^{n} \operatorname{Cov}\left(X_{i}, X_{j}\right)
+    \\ & =
+    \sum_{i=1}^{n} \sigma_{i}^{2}
+    + 2 \sum_{i=1}^{n} \sum_{j=i+1}^{n} \rho \sqrt{\sigma_{i}^{2} \sigma_{j}^{2}}
+    =
+    \sum_{i=1}^{n} \sigma_{i}^{2}
+    + 2 \sum_{i=1}^{n} \sum_{j=i+1}^{n} \rho \sigma_{i} \sigma_{j}
+\end{align*}
