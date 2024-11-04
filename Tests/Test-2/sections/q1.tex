@@ -5,3 +5,71 @@ Let \( X=\max \left(I_{A}, I_{B}\right) \) and \( Y=\min \left(I_{A}, I_{B}\righ
 Find the joint probability mass function of \( X, Y \) and \( \operatorname{Cov}(X, Y) \).
 
 \subsection*{Solution}
+
+We know that the indicator random variable \( I_{A} \) of event \( A \) is defined as
+\begin{equation*}
+    I_{A}=\begin{cases}
+        1 & \text { if event } A \text { occurs } \\
+        0 & \text { otherwise }
+    \end{cases}
+\end{equation*}
+We can see that it takes the values \( 1 \) and \( 0 \) with probabilities \( P(A) \) and \( P(A^{c}) \) respectively.
+From this, we can see that the range of the values of \( I_{A}, I_{B} \) is \( \{0, 1\} \), and hence the range of the values of \( X, Y \) is also \( \{0, 1\} \), thereby, \( X, Y \) are discrete random variables.
+
+Now, we have
+\begin{align*}
+    \implies
+    P(X=0, Y=0)
+     & =
+    P(I_{A}=0, I_{B}=0)
+    =
+    P(A^{c} \cap B^{c})
+    \\
+    \implies
+    P(X=0, Y=1)
+     & =
+    0
+    \\
+    \implies
+    P(X=1, Y=0)
+     & =
+    P(I_{A}=1, I_{B}=0) + P(I_{A}=0, I_{B}=1)
+    \\ & =
+    P(A \cap B^{c}) + P(A^{c} \cap B)
+    \\
+    \implies
+    P(X=1, Y=1)
+     & =
+    P(I_{A}=1, I_{B}=1)
+    =
+    P(A \cap B)
+\end{align*}
+
+Therefore, the joint probability mass function of \( X, Y \) is
+\begin{align*}
+     &
+    f_{XY}(x, y)
+    =
+    P(X=x, Y=y)
+    \\
+    \implies
+     &
+    \boxed{
+        f_{XY}(x, y)
+        =
+        \begin{cases}
+            P(A^{c} \cap B^{c})
+             &
+            \text { if } x=0, y=0
+            \\
+            P(A \cap B^{c}) + P(A^{c} \cap B)
+             & \text { if } x=1, y=0
+            \\
+            P(A \cap B)
+             & \text { if } x=1, y=1
+            \\
+            0
+             & \text { otherwise }
+        \end{cases}
+    }
+\end{align*}
