@@ -8,3 +8,91 @@ Let \( Z=X+Y \).
 Find \( E Z \).
 
 \subsection*{Solution}
+
+\begin{equation*}
+    E[Z]
+    =
+    E[X+Y]
+    =
+    E[X] + E[Y]
+\end{equation*}
+
+\begin{align*}
+    f_X (x)
+     & =
+    \int_{-\infty}^{\infty} f_{X Y}(x, y) \, dy
+    =
+    \int_{x}^{\infty} 4 e^{-2 y} \, dy
+    =
+    -2 e^{-2 y} \Big|_{x}^{\infty}
+    =
+    2 e^{-2 x}
+    \\
+    f_Y (y)
+     & =
+    \int_{-\infty}^{\infty} f_{X Y}(x, y) \, dx
+    =
+    \int_{0}^{y} 4 e^{-2 y} \, dx
+    =
+    4 e^{-2 y} x \Big|_{0}^{y}
+    =
+    4 y e^{-2 y}
+\end{align*}
+
+\begin{align*}
+    \implies
+    E[X]
+     & =
+    \int_{-\infty}^{\infty} x f_X(x) \, dx
+    =
+    \int_{0}^{\infty} 2 x e^{-2 x} \, dx
+        =
+        {\left[
+                \cancel{2} x \frac{-1}{\cancel{2}} e^{-2 x}
+                -
+                \int \cancel{2} \frac{-1}{\cancel{2}} e^{-2 x} \, dx
+                \right]}_{0}^{\infty}
+    \\ & =
+    {\left[
+        -x e^{-2 x}
+        -
+        \frac{1}{2} e^{-2 x}
+        \right]}_{0}^{\infty}
+    =
+    0 - 0 - \left( -0 - \frac{1}{2} \right)
+    =
+    \frac{1}{2}
+    \\
+    \implies
+    E[Y]
+     & =
+    \int_{-\infty}^{\infty} y f_Y(y) \, dy
+    =
+    \int_{0}^{\infty} 4 y^2 e^{-2 y} \, dy
+    =
+    4 \int_{0}^{\infty} y^2 e^{-2 y} \, dy
+    \\ & =
+    4 \left(
+    y^2 \frac{-1}{2} e^{-2 y} \Bigg|_{0}^{\infty}
+    - \int_{0}^{\infty} y \frac{-1}{2} e^{-2 y} \, dy
+    \right)
+    =
+    \int_{0}^{\infty} 2y e^{-2 y} \, dy
+    =
+    \frac{1}{2}
+\end{align*}
+
+\begin{equation*}
+    \implies
+    E[Z]
+    =
+    E[X] + E[Y]
+    =
+    \frac{1}{2} + \frac{1}{2}
+    =
+    1
+    \implies
+    \boxed{
+        E[Z] = 1
+    }
+\end{equation*}
