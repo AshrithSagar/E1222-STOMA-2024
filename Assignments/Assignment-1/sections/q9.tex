@@ -39,7 +39,8 @@ We can write this as
         \text{otherwise}
     \end{cases}
 \end{align*}
-where \( L \) is the length of the subinterval that contains \( c \).
+where \( L \) is the length of the subinterval that contains \( c \). \\
+We can see that if \( y < -1 \) or \( y > 1 \), then the length of the subinterval that contains \( c \) is \( 0 \).
 
 Since \( X \sim U(0, 1) \), we have \( f_X(x) = 1 \) for \( 0 < x < 1 \).
 Thus, we have
@@ -79,16 +80,16 @@ Thus, we have
     2yc + \cancel{c} - \cancel{c^2} + \cancel{\frac{1}{2}} - y
     \right)
     \, dy
-    \\ & =
-    \int_{-1}^{1}
-    y(2c - 1)
-    \, dy
 \end{align*}
 
 \begin{align*}
     \implies
     E[L]
      & =
+    \int_{-1}^{1}
+    y(2c - 1)
+    \, dy
+    \\ & =
     (2c - 1)
     \int_{-1}^{1}
     y
