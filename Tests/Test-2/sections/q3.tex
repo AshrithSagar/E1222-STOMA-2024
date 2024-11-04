@@ -5,3 +5,50 @@ Let \( Z=X+Y \).
 Find the conditional density of \( Z \) given \( Y \) and \( P[Z>2 \mid Y=1] \).
 
 \subsection*{Solution}
+
+Given that \( X, Y \) are iid exponential random variables with parameter \( \lambda \), we have
+\begin{align*}
+    f_{X}(x)
+     & =
+    \lambda e^{-\lambda x}
+    \\
+    f_{Y}(y)
+     & =
+    \lambda e^{-\lambda y}
+\end{align*}
+\begin{align*}
+    \implies
+    f_{Z \mid Y}(z \mid y)
+     & =
+    \frac{f_{ZY}(z, y)}{f_{Y}(y)}
+    =
+    \frac{f_{X}(z-y) f_{Y}(y)}{f_{Y}(y)}
+    =
+    f_{X}(z-y)
+    \\
+     & =
+    \lambda e^{-\lambda (z-y)}
+    =
+    \boxed{
+        \lambda e^{-\lambda z} e^{\lambda y}
+    }
+\end{align*}
+\begin{align*}
+    \implies
+    P[Z>2 \mid Y=1]
+     & =
+    \int_{2}^{\infty} f_{Z \mid Y}(z \mid 1) \, dz
+    =
+    \int_{2}^{\infty} \lambda e^{-\lambda z} e^{\lambda} \, dz
+    =
+    e^{\lambda} \int_{2}^{\infty} \lambda e^{-\lambda z} \, dz
+    \\
+     & =
+    e^{\lambda} \left( -e^{-\lambda z} \Big|_{2}^{\infty} \right)
+    =
+    e^{\lambda} e^{-2 \lambda}
+    =
+    \boxed{
+        e^{-\lambda}
+    }
+\end{align*}
