@@ -7,43 +7,59 @@ Show that this is maximized when \( c=0.5 \).
 
 \subsection*{Solution}
 
+Let the interval be denoted by \( [y, y+1] \).
 Let \( X \) be the point at which the interval is broken.
-Then, \( X \) is uniformly distributed over \( (0,1) \).
-Let \( Y \) be the length of the subinterval that contains the point \( c \).
-Then, \( Y = \min(X, 1-X) \).
+Then, \( X \) is uniformly distributed over \( (0,1) \), i.e., \( X \sim U(0, 1) \).
+We have \( y \leq x \leq y+1 \) for some \( y \).
+With \( c \) being a fixed point in \( (0,1) \), we have,
+\begin{enumerate}
+    \item If \( c \leq y \), then the length of the subinterval that contains \( c \) is \( 0 \).
+    \item If \( c \geq y+1 \), then the length of the subinterval that contains \( c \) is \( 0 \).
+    \item If \( y \leq c \leq y+1 \), then we have
+          \begin{enumerate}
+              \item If \( c \leq x \), then the length of the subinterval that contains \( c \) is \( x-y \).
+              \item If \( c \geq x \), then the length of the subinterval that contains \( c \) is \( y+1-x \).
+          \end{enumerate}
+\end{enumerate}
 
-The probability density function of \( X \) is given by
-\[
-    f_{X}(x) = \begin{cases}
-        1 & 0 < x < 1        \\
-        0 & \text{otherwise}
-    \end{cases}
-\]
-
-The cumulative distribution function of \( Y \) is given by
+Let \( L \) be the length of the subinterval that contains \( c \).
+Then, the expected length of the subinterval that contains \( c \) is given by
 \begin{align*}
-    F_{Y}(y) & = P(Y \leq y)                                                       \\
-             & = P(\min(X, 1-X) \leq y)                                            \\
-             & = P(X \leq y \text{ or } 1-X \leq y)                                \\
-             & = P(X \leq y) + P(1-X \leq y) - P(X \leq y \text{ and } 1-X \leq y) \\
-             & = P(X \leq y) + P(X \geq 1-y) - P(y \leq X \leq 1-y)                \\
-             & = F_{X}(y) + F_{X}(1-y) - F_{X}(1-y)                                \\
-             & = F_{X}(y) + F_{X}(1-y) - F_{X}(y)                                  \\
-             & = F_{X}(1-y)                                                        \\
-             & = 1 - F_{X}(y)
+    E[L] & = \int_{0}^{1} E[L|X=x] f_X(x) \, dx
 \end{align*}
 
-The probability density function of \( Y \) is given by
-\[
-    f_{Y}(y) = \frac{d}{dy} F_{Y}(y) = \frac{d}{dy} (1 - F_{X}(y)) = -f_{X}(y) = -1
-\]
-
-The expected length of the subinterval that contains the point \( c \) is given by
+From above, we have
 \begin{align*}
-    E[Y] & = \int_{0}^{1} y f_{Y}(y) dy     \\
-         & = \int_{0}^{1} -y dy             \\
-         & = -\frac{y^{2}}{2} \Big|_{0}^{1} \\
-         & = -\frac{1}{2}
+    E[L|X=x] & = \begin{cases}
+                     0   & \text{if } c \leq x \text{ or } c \geq x+1 \\
+                     x-c & \text{if } c \leq x \leq c+1               \\
+                     c-x & \text{if } x \leq c \leq x+1
+                 \end{cases}
 \end{align*}
 
-The expected length of the subinterval that contains the point \( c \) is maximized when \( c = 0.5 \) because the expected length is symmetric about \( 0.5 \).
+Given that \( X \sim U(0, 1) \), we have \( f_X(x) = 1 \) for \( 0 < x < 1 \).
+Therefore, the expected length of the subinterval that contains \( c \) is given by
+\begin{align*}
+    E[L] & = \int_{0}^{1} E[L|X=x] f_X(x) \, dx                            \\
+         & = \int_{0}^{1} \begin{cases}
+                              0   & \text{if } c \leq x \text{ or } c \geq x+1 \\
+                              x-c & \text{if } c \leq x \leq c+1               \\
+                              c-x & \text{if } x \leq c \leq x+1
+                          \end{cases} \, dx
+\end{align*}
+
+\begin{align*}
+    E[L] & = \int_{0}^{c} (c-x) \, dx + \int_{c}^{c+1} (x-c) \, dx                                   \\
+         & = \left. cx - \frac{x^2}{2} \right|_{0}^{c} + \left. \frac{x^2}{2} - cx \right|_{c}^{c+1} \\
+         & = c^2 - \frac{c^2}{2} + \frac{c^2}{2} - c^2 + c - c^2                                     \\
+         & = c
+\end{align*}
+
+Therefore, the expected length of the subinterval that contains \( c \) is \( c \).
+
+To show that this is maximized when \( c=0.5 \), we differentiate \( E[L] \) with respect to \( c \) and equate it to zero.
+\begin{align*}
+    \frac{dE[L]}{dc} & = 1 = 0
+\end{align*}
+
+Therefore, the expected length of the subinterval that contains \( c \) is maximized when \( c=0.5 \).
