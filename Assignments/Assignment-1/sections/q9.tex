@@ -15,61 +15,97 @@ With \( c \) being a fixed point in \( (0,1) \), we have,
 \begin{enumerate}
     \item If \( c \leq y \), then the length of the subinterval that contains \( c \) is \( 0 \).
     \item If \( c \geq y+1 \), then the length of the subinterval that contains \( c \) is \( 0 \).
-    \item If \( y \leq c \leq y+1 \), then we have
+    \item If \( y < c < y+1 \), then we have
           \begin{enumerate}
-              \item If \( c \leq x \), then the length of the subinterval that contains \( c \) is \( x-y \).
-              \item If \( c \geq x \), then the length of the subinterval that contains \( c \) is \( y+1-x \).
+              \item If \( x < c \), then the length of the subinterval that contains \( c \) is \( y+1-x \).
+              \item If \( x > c \), then the length of the subinterval that contains \( c \) is \( x-y \).
           \end{enumerate}
 \end{enumerate}
-
-Let \( L \) be the length of the subinterval that contains \( c \).
-Then, the expected length of the subinterval that contains \( c \) is given by
+We can write this as
 \begin{align*}
-    E[L] & = \int_{0}^{1} E[L|X=x] f_X(x) \, dx
-\end{align*}
-
-From above, we have
-\begin{align*}
-    E[L|X=x]
+    L
      & =
     \begin{cases}
+        y+1-x
+         &
+        \text{if } x < c < y + 1
+        \\
+        x-y
+         &
+        \text{if } y < c < x
+        \\
         0
          &
-        \text{if } c \leq x \text{ or } c \geq x+1
-        \\
-        x-c
-         &
-        \text{if } c \leq x \leq c+1
-        \\
-        c-x
-         &
-        \text{if } x \leq c \leq x+1
+        \text{otherwise}
     \end{cases}
 \end{align*}
+where \( L \) is the length of the subinterval that contains \( c \).
 
-Given that \( X \sim U(0, 1) \), we have \( f_X(x) = 1 \) for \( 0 < x < 1 \).
-Therefore, the expected length of the subinterval that contains \( c \) is given by
+Since \( X \sim U(0, 1) \), we have \( f_X(x) = 1 \) for \( 0 < x < 1 \).
+Thus, we have
 \begin{align*}
-    E[L] & = \int_{0}^{1} E[L|X=x] f_X(x) \, dx                            \\
-         & = \int_{0}^{1} \begin{cases}
-                              0   & \text{if } c \leq x \text{ or } c \geq x+1 \\
-                              x-c & \text{if } c \leq x \leq c+1               \\
-                              c-x & \text{if } x \leq c \leq x+1
-                          \end{cases} \, dx
+    E[L]
+     & =
+    \int_{-1}^{1} \int_{0}^{1} L f_X(x) \, dx \, dy
+    \\ & =
+    \int_{-1}^{1} \int_{0}^{1} L \, dx \, dy
+    \\ & =
+    \int_{-1}^{1}
+    \left(
+    \int_{0}^{c} (y+1-x) \, dx
+    +
+    \int_{c}^{1} (x-y) \, dx
+    \right)
+    \, dy
+    \\ & =
+    \int_{-1}^{1}
+    \left(
+    \left. (y+1)x - \frac{x^2}{2} \right|_{0}^{c}
+    +
+    \left. \frac{x^2}{2} - yx \right|_{c}^{1}
+    \right)
+    \, dy
+    \\ & =
+    \int_{-1}^{1}
+    \left(
+    (y+1)c - \frac{c^2}{2}
+    +
+    \frac{1}{2} - \frac{c^2}{2} - y + yc
+    \right)
+    \, dy
+    \\ & =
+    \int_{-1}^{1}
+    \left(
+    2yc + \cancel{c} - \cancel{c^2} + \cancel{\frac{1}{2}} - y
+    \right)
+    \, dy
+    \\ & =
+    \int_{-1}^{1}
+    y(2c - 1)
+    \, dy
 \end{align*}
 
 \begin{align*}
-    E[L] & = \int_{0}^{c} (c-x) \, dx + \int_{c}^{c+1} (x-c) \, dx                                   \\
-         & = \left. cx - \frac{x^2}{2} \right|_{0}^{c} + \left. \frac{x^2}{2} - cx \right|_{c}^{c+1} \\
-         & = c^2 - \frac{c^2}{2} + \frac{c^2}{2} - c^2 + c - c^2                                     \\
-         & = c
+    \implies
+    E[L]
+     & =
+    (2c - 1)
+    \int_{-1}^{1}
+    y
+    \, dy
+    \\ & =
+    2(2c - 1)
+    \int_{0}^{1}
+    y
+    \, dy
+    \\ & =
+    2(2c - 1)
+    \left.
+    \frac{y^2}{2}
+    \right|_{0}^{1}
+    \\ & =
+    (2c - 1)
 \end{align*}
 
-Therefore, the expected length of the subinterval that contains \( c \) is \( c \).
-
-To show that this is maximized when \( c=0.5 \), we differentiate \( E[L] \) with respect to \( c \) and equate it to zero.
-\begin{align*}
-    \frac{dE[L]}{dc} & = 1 = 0
-\end{align*}
-
-Therefore, the expected length of the subinterval that contains \( c \) is maximized when \( c=0.5 \).
+Thus, the expected length of the subinterval that contains the point \( c \) is \( 2c - 1 \).
+This is maximized when \( c = 0.5 \).
