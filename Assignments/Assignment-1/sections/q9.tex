@@ -30,11 +30,21 @@ Then, the expected length of the subinterval that contains \( c \) is given by
 
 From above, we have
 \begin{align*}
-    E[L|X=x] & = \begin{cases}
-                     0   & \text{if } c \leq x \text{ or } c \geq x+1 \\
-                     x-c & \text{if } c \leq x \leq c+1               \\
-                     c-x & \text{if } x \leq c \leq x+1
-                 \end{cases}
+    E[L|X=x]
+     & =
+    \begin{cases}
+        0
+         &
+        \text{if } c \leq x \text{ or } c \geq x+1
+        \\
+        x-c
+         &
+        \text{if } c \leq x \leq c+1
+        \\
+        c-x
+         &
+        \text{if } x \leq c \leq x+1
+    \end{cases}
 \end{align*}
 
 Given that \( X \sim U(0, 1) \), we have \( f_X(x) = 1 \) for \( 0 < x < 1 \).
