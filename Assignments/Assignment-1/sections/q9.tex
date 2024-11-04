@@ -77,7 +77,7 @@ Thus, we have
     \\ & =
     \int_{-1}^{1}
     \left(
-    2yc + \cancel{c} - \cancel{c^2} + \cancel{\frac{1}{2}} - y
+    2yc + c - c^2 +\frac{1}{2} - y
     \right)
     \, dy
 \end{align*}
@@ -86,27 +86,36 @@ Thus, we have
     \implies
     E[L]
      & =
-    \int_{-1}^{1}
-    y(2c - 1)
-    \, dy
-    \\ & =
-    (2c - 1)
-    \int_{-1}^{1}
-    y
-    \, dy
-    \\ & =
-    2(2c - 1)
+    2
     \int_{0}^{1}
-    y
+    \left(
+    c - c^2 + \frac{1}{2}
+    \right)
     \, dy
     \\ & =
-    2(2c - 1)
-    \left.
-    \frac{y^2}{2}
-    \right|_{0}^{1}
+    2
+    \left(
+    c - c^2 + \frac{1}{2}
+    \right)
     \\ & =
-    (2c - 1)
+    2c - 2c^2 + 1
 \end{align*}
 
-Thus, the expected length of the subinterval that contains the point \( c \) is \( 2c - 1 \).
-This is maximized when \( c = 0.5 \).
+Thus, the expected length of the subinterval that contains the point \( c \) is \( 2c - 2c^2 + 1 \).
+
+To find the maximum value of \( E[L] \), we differentiate \( E[L] \) with respect to \( c \) and equate it to \( 0 \).
+\begin{align*}
+    \frac{dE[L]}{dc}
+     & =
+    2 - 4c
+    \\
+    \implies
+    2 - 4c
+     & =
+    0
+    \\
+    \implies
+    c
+     & =
+    \frac{1}{2}
+\end{align*}
