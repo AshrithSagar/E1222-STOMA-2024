@@ -163,3 +163,18 @@ From this, it is possible to calculate the probability density function (pdf) of
 \end{align*}
 
 Thereby, we can see that the random variable \underline{\( Z \) is a continuous random variable}, since it's pdf exists.
+
+We can see that this is a valid pdf, since
+\begin{align*}
+    \sum_{z=-\infty}^{\infty} f_{Z}(z)
+     & =
+    \sum_{z=0}^{\infty} f_{Z}(z)
+    \\ & =
+    0 + \frac{1}{2} P[Y = 0] + \frac{1}{2} P[Y = 0] + \frac{1}{2} P[Y = 1] + \frac{1}{2} P[Y = 1] + \ldots
+    \\ & =
+    P[Y = 0] + P[Y = 1] + P[Y = 2] + \ldots
+    \\ & =
+    \sum_{y=0}^{\infty} P[Y = y]
+    =
+    1
+\end{align*}
