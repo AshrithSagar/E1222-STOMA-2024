@@ -8,58 +8,67 @@ Find the probability that \( L \) is greater than 0.25 and \( E[L] \).
 \subsection*{Solution}
 
 Let \( X \) be the length of the piece containing the left end after the first break.
-Let \( Y \) be the length of the piece containing the left end after the second break.
+Let \( L \) be the length of the piece containing the left end after the second break.
 \begin{align*}
     f_{X}(x)
      & =
     1
     \\
-    f_{Y \mid X}(y \mid x)
+    f_{L \mid X}(l \mid x)
      & =
-    1
+    \frac{1}{x},
+    \quad
+    0 < l < x < 1
 \end{align*}
 \begin{align*}
     \implies
-    f_{Y}(y)
+    f_{L}(l)
      & =
-    \int_{-\infty}^{\infty} f_{Y \mid X}(y \mid x) f_{X}(x) \, dx
+    \int_{l}^{1} f_{L \mid X}(l \mid x) f_{X}(x) \, dx
     =
-    \int_{0}^{1} 1 \, dx
+    \int_{l}^{1} \frac{1}{x} \, dx
     =
-    x \Big|_{0}^{1}
+    \ln x \Big|_{l}^{1}
     =
-    1
+    \ln 1 - \ln l
+    =
+    -\ln l,
+    \quad
+    0 < l < 1
 \end{align*}
-
 \begin{align*}
     \implies
-    P[L>0.25]
+    P[L > 0.25]
      & =
-    P[Y>0.25]
+    \int_{0.25}^{1} -\ln l \, dl
     =
-    1 - P[Y \leq 0.25]
+    - \left( l \ln l - l \right) \Big|_{0.25}^{1}
+    \\ & =
+    - \left( \ln 1 - 1 - 0.25 \ln 0.25 + 0.25 \right)
     =
-    1 - F_Y(0.25)
+    0.75 + 0.25 \ln 0.25
+    \\ & =
+    0.75 - 0.25 \ln 4
     =
-    1 - 0.25
-    =
-    \boxed{
-        0.75
-    }
+    0.75 - 0.5 \ln 2
+    \approx
+    0.4034
 \end{align*}
 \begin{align*}
     \implies
     E[L]
      & =
-    E[Y]
+    \int_{0}^{1} l f_{L}(l) \, dl
     =
-    \int_{-\infty}^{\infty} y f_Y(y) \, dy
+    \int_{0}^{1} l (-\ln l) \, dl
+    \\ & =
+    - \int_{0}^{1} l \ln l \, dl
     =
-    \int_{0}^{1} y \cdot 1 \, dy
+    - \left( \frac{l^2}{2} \ln l \Big|_{0}^{1} - \int_{0}^{1} \frac{l^2}{2} \frac{1}{l} \, dl \right)
+    \\ & =
+    \frac{1}{2} \int_{0}^{1} l \, dl
     =
-    \frac{y^{2}}{2} \Big|_{0}^{1}
+    \frac{1}{2} \left( \frac{l^2}{2} \Big|_{0}^{1} \right)
     =
-    \boxed{
-        \frac{1}{2}
-    }
+    \frac{1}{4}
 \end{align*}
