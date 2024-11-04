@@ -6,3 +6,60 @@ Let \( L \) denote the length of the final piece containing the left end.
 Find the probability that \( L \) is greater than 0.25 and \( E[L] \).
 
 \subsection*{Solution}
+
+Let \( X \) be the length of the piece containing the left end after the first break.
+Let \( Y \) be the length of the piece containing the left end after the second break.
+\begin{align*}
+    f_{X}(x)
+     & =
+    1
+    \\
+    f_{Y \mid X}(y \mid x)
+     & =
+    1
+\end{align*}
+\begin{align*}
+    \implies
+    f_{Y}(y)
+     & =
+    \int_{-\infty}^{\infty} f_{Y \mid X}(y \mid x) f_{X}(x) \, dx
+    =
+    \int_{0}^{1} 1 \, dx
+    =
+    x \Big|_{0}^{1}
+    =
+    1
+\end{align*}
+
+\begin{align*}
+    \implies
+    P[L>0.25]
+     & =
+    P[Y>0.25]
+    =
+    1 - P[Y \leq 0.25]
+    =
+    1 - F_Y(0.25)
+    =
+    1 - 0.25
+    =
+    \boxed{
+        0.75
+    }
+\end{align*}
+\begin{align*}
+    \implies
+    E[L]
+     & =
+    E[Y]
+    =
+    \int_{-\infty}^{\infty} y f_Y(y) \, dy
+    =
+    \int_{0}^{1} y \cdot 1 \, dy
+    =
+    \frac{y^{2}}{2} \Big|_{0}^{1}
+    =
+    \boxed{
+        \frac{1}{2}
+    }
+\end{align*}
