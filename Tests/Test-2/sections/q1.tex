@@ -113,6 +113,16 @@ To calculate the covariance of \( X, Y \), we have
          &
         \text { if } x=1
     \end{cases}
+    \\ & =
+    \begin{cases}
+        P(A^{c} \cap B^{c})
+         &
+        \text { if } x=0
+        \\
+        P(A \cup B)
+         &
+        \text { if } x=1
+    \end{cases}
     \\
     \implies
     E[X]
@@ -121,10 +131,8 @@ To calculate the covariance of \( X, Y \), we have
     =
     0 \cdot f_X(0)
     + 1 \cdot f_X(1)
-    \\ & =
-    P(A \cap B^{c})
-    + P(A^{c} \cap B)
-    + P(A \cap B)
+    =
+    P(A \cup B)
 \end{align*}
 
 \begin{align*}
@@ -147,6 +155,16 @@ To calculate the covariance of \( X, Y \), we have
          &
         \text { if } y=1
     \end{cases}
+    \\ & =
+    \begin{cases}
+        P(A^{c} \cup B^{c})
+         &
+        \text { if } y=0
+        \\
+        P(A \cap B)
+         &
+        \text { if } y=1
+    \end{cases}
     \\
     \implies
     E[Y]
@@ -154,7 +172,7 @@ To calculate the covariance of \( X, Y \), we have
     \sum_{y} y f_Y(y)
     =
     0 \cdot f_Y(0) + 1 \cdot f_Y(1)
-    \\ & =
+    =
     P(A \cap B)
 \end{align*}
 
@@ -164,4 +182,10 @@ Therefore, the covariance of \( X, Y \) is
     \operatorname{Cov}(X, Y)
      & =
     E[XY] - E[X]E[Y]
+    \\ & =
+    P(A \cap B) - P(A \cup B) \cdot P(A \cap B)
+    \\ & =
+    \boxed{
+        P(A \cap B) (1 - P(A \cup B))
+    }
 \end{align*}
