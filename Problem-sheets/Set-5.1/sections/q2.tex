@@ -10,3 +10,30 @@ State which are transient states and which are recurrent states.
 Is the chain irreducible?
 
 \subsection*{Solution}
+
+Let \( X_{n} \) denote the number of black balls in box-1 after the exchange at \( n \), \( n=1,2, \dots \).
+The state space is \( S=\left \{0,1,2, \dots , d\right \} \).
+The number of black balls in either of the boxes, of either of the colors, only depends on \( X_{n} \) and not on the history of the process.
+Hence, \( \left \{ X_{n}\right \} \) is a Markov chain.
+
+The transition probabilities are given by
+\[
+    p_{xy}=\operatorname{Prob}\left[X_{n+1}=y \mid X_{n}=x\right]
+\]
+where \( x,y \in S \), and can be computed as
+\[
+    p_{xy}=
+    \begin{cases}
+        \frac{x}{d} \frac{x}{d}
+         & \text{if } y = x-1
+        \\
+        \frac{x}{d} \frac{d-x}{d} + \frac{d-x}{d} \frac{x}{d}
+         & \text{if } y = x
+        \\
+        \frac{d-x}{d} \frac{d-x}{d}
+         & \text{if } y = x + 1
+    \end{cases}
+\]
+And we can see that the sum over all \( y \) for a given \( x \) is 1, as expected.
+
+The chain is irreducible and all the states are recurrent.
