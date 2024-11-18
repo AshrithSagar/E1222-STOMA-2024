@@ -16,3 +16,92 @@ Specify which are the transient and recurrent states and find all the closed irr
 Find the absorption probabilities from each of the transient states to each of the closed irreducible subsets of recurrent states.
 
 \subsection*{Solution}
+
+Let the state space be \( S=\left \{ 0, 1, 2, 3, 4, 5 \right \} \).
+Then we have
+\begin{align*}
+    S_R
+     & =
+    \{ 0, 1, 4, 5 \}
+    =
+    \{ 0, 1 \} \cup \{ 4, 5 \}
+    \\
+    S_T
+     & =
+    \{ 2, 3 \}
+\end{align*}
+The closed irreducible subsets of recurrent states are \( C_1 = \{ 0, 1 \} \) and \( C_2 = \{ 4, 5 \} \).
+
+The absorption probabilities from the transient states to \( C_1 \) are
+\begin{align*}
+    \rho_{C_1} (2)
+     & =
+    P(2, 0) + P(2, 1) + P(2, 2) \rho_{C_1} (2) + P(2, 3) \rho_{C_1} (3)
+    \\
+    \rho_{C_1} (3)
+     & =
+    P(3, 0) + P(3, 1) + P(3, 2) \rho_{C_1} (2) + P(3, 3) \rho_{C_1} (3)
+\end{align*}
+\begin{align*}
+    \implies
+    \rho_{C_1} (2)
+     & =
+    0.2 + 0.2 + 0.2 \rho_{C_1} (2) + 0.2 \rho_{C_1} (3)
+    \\
+    \rho_{C_1} (3)
+     & =
+    0 + 0.3 + 0.2 \rho_{C_1} (2) + 0.2 \rho_{C_1} (3)
+\end{align*}
+\begin{align*}
+    \implies
+    \begin{bmatrix}
+        0.8  & -0.2 \\
+        -0.2 & 0.8
+    \end{bmatrix}
+    \begin{bmatrix}
+        \rho_{C_1} (2) \\
+        \rho_{C_1} (3)
+    \end{bmatrix}
+     & =
+    \begin{bmatrix}
+        0.4 \\
+        0.3
+    \end{bmatrix}
+    \\
+    \implies
+    \begin{bmatrix}
+        \rho_{C_1} (2) \\
+        \rho_{C_1} (3)
+    \end{bmatrix}
+     & =
+    \frac{1}{0.6}
+    \begin{bmatrix}
+        0.8 & 0.2 \\
+        0.2 & 0.8
+    \end{bmatrix}
+    \begin{bmatrix}
+        0.4 \\
+        0.3
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        19/30 \\
+        8/15
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0.6333 \\
+        0.5333
+    \end{bmatrix}
+    \\
+    \implies
+    \begin{bmatrix}
+        \rho_{C_2} (2) \\
+        \rho_{C_2} (3)
+    \end{bmatrix}
+     & =
+    \begin{bmatrix}
+        11/30 \\
+        7/15
+    \end{bmatrix}
+\end{align*}
