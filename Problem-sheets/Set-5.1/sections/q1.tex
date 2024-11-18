@@ -8,3 +8,28 @@ Show that
 (That is, conditioned on the ``present'' the ``past'' is conditinally independent of the ``future'')
 
 \subsection*{Solution}
+
+\begin{align*}
+     &
+    \operatorname{Prob}\left[X_{n+1}=z, X_{n-1}=y \mid X_{n}=x\right]
+    =
+    \frac{
+        \operatorname{Prob}\left[X_{n+1}=z, X_{n-1}=y, X_{n}=x\right]
+    }{
+        \operatorname{Prob}\left[X_{n}=x\right]
+    }
+    \\ & \quad =
+    \frac{
+        \operatorname{Prob}\left[X_{n+1}=z \mid X_{n}=x, X_{n-1}=y\right] \operatorname{Prob}\left[X_{n-1}=y, X_{n}=x\right]
+    }{
+        \operatorname{Prob}\left[X_{n}=x\right]
+    }
+    \\ & \quad =
+    \frac{
+        \operatorname{Prob}\left[X_{n+1}=z \mid X_{n}=x\right] \operatorname{Prob}\left[X_{n-1}=y, X_{n}=x\right]
+    }{
+        \operatorname{Prob}\left[X_{n}=x\right]
+    }
+    \\ & \quad =
+    \operatorname{Prob}\left[X_{n+1}=z \mid X_{n}=x\right] \operatorname{Prob}\left[X_{n-1}=y \mid X_{n}=x\right]
+\end{align*}
