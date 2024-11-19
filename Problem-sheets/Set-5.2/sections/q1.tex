@@ -4,3 +4,32 @@ Let \( X(t) \) be a wide-sense stationary stochastic process with autocorrelatio
 Show that \( \operatorname{Prob}[|X(t+\tau)-X(t)| \geq a]<2[R(0)-R(\tau)] / a^{2} \).
 
 \subsection*{Solution}
+
+\begin{align*}
+    R(\tau)
+     & =
+    E[X(t+\tau)X(t)]
+    \\
+    R(0)
+     & =
+    E[X(t)X(t)]
+    =
+    E[{(X(t))}^2]
+\end{align*}
+
+Wide-sense stationary implies that \( R(0) = E[{(X(t))}^2] = E[{(X(t+\tau))}^2] \).
+
+By Markov inequality,
+\begin{align*}
+    \Pr [|X(t+\tau) - X(t)| \geq a]
+     & \leq
+    \frac{E[|X(t+\tau) - X(t)|^{2}]}{a^{2}}
+    \\ & =
+    \frac{
+    E[{(X(t+\tau))}^{2} - 2X(t+\tau)X(t) + {(X(t))}^{2}]
+    }{a^{2}}
+    \\ & =
+    \frac{
+        2[R(0) - R(\tau)]
+    }{a^{2}}
+\end{align*}
