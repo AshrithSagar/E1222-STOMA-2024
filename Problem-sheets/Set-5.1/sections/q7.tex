@@ -9,3 +9,120 @@ If the class does badly on the current exam, then the next exam would always be 
 What proportion of exams are of type \( i, i=1,2,3 \)?
 
 \subsection*{Solution}
+
+Let the state space be \( S = \{ 1, 2, 3 \} \), where \( 1 \) denotes the exam of type 1, \( 2 \) denotes the exam of type 2, and \( 3 \) denotes the exam of type 3.
+
+The transition matrix is given by
+\begin{align*}
+    P
+     & =
+    \begin{bmatrix}
+        0.4/3 & 0.4/3 & (0.4/3 + 1 - 0.4) \\
+        0.6/3 & 0.6/3 & (0.6/3 + 1 - 0.6) \\
+        0.8/3 & 0.8/3 & (0.8/3 + 1 - 0.8)
+    \end{bmatrix}
+    =
+    \frac{1}{30}
+    \begin{bmatrix}
+        4 & 4 & 22 \\
+        6 & 6 & 18 \\
+        8 & 8 & 14
+    \end{bmatrix}
+    =
+    \frac{1}{15}
+    \begin{bmatrix}
+        2 & 2 & 11 \\
+        3 & 3 & 9  \\
+        4 & 4 & 7
+    \end{bmatrix}
+\end{align*}
+and the stationary distribution is given by
+\begin{align*}
+     &
+    \pi
+    =
+    P^\top \pi
+    \\
+    \implies
+     &
+    \frac{1}{15}
+    \begin{bmatrix}
+        -13 & 3   & 4  \\
+        2   & -12 & 4  \\
+        11  & 9   & -8
+    \end{bmatrix}
+    \begin{bmatrix}
+        \pi_{1} \\
+        \pi_{2} \\
+        \pi_{3}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        0
+    \end{bmatrix}
+    \\
+    \implies
+     &
+    11 \pi_{1} + 9 \pi_{2}
+    =
+    8 \pi_{3}
+    \implies
+    2 \pi_{1} + 9(1 - \pi_{3})
+    =
+    8 \pi_{3}
+    \\
+    \implies
+     &
+    2 \pi_{1} + 9
+    =
+    17 \pi_{3}
+    \\
+    \implies
+     &
+    -39 \pi_{1} + 9 \pi_{2} + 12 \pi_{3}
+    =
+    11 \pi_{1} + 9 \pi_{2} - 8 \pi_{3}
+    =
+    0
+    \\
+    \implies
+     &
+    4 \pi_{3}
+    =
+    28 \pi_{1}
+    \implies
+    \pi_{1}
+    =
+    \frac{1}{7}
+    \pi_{3}
+    \\
+    \implies
+     &
+    \frac{117}{7} \pi_{3}
+    =
+    9
+    \implies
+    \pi_{3}
+    =
+    \frac{63}{117}
+    =
+    \frac{7}{13}
+    \\
+    \implies
+     &
+    \boxed{
+        \pi_{1}
+        =
+        \frac{1}{13}
+        ,
+        \pi_{2}
+        =
+        \frac{5}{13}
+        ,
+        \pi_{3}
+        =
+        \frac{7}{13}
+    }
+\end{align*}
