@@ -4,3 +4,38 @@ Let \( X(t) \) be a process defined by \( X(t)=(-1)^{N(t)} \) where \( N(t) \) i
 Find the mean and autocorrelation of \( X(t) \).
 
 \subsection*{Solution}
+
+\begin{align*}
+    \eta(t)
+     & =
+    E[X(t)]
+    =
+    E[(-1)^{N(t)}]
+    =
+    \sum_{n=0}^{\infty} (-1)^{n} \frac{e^{-\lambda t} (\lambda t)^{n}}{n!}
+    \\ & =
+    e^{-\lambda t} \sum_{n=0}^{\infty} \frac{(-\lambda t)^{n}}{n!}
+    =
+    e^{-\lambda t} e^{-\lambda t}
+    =
+    e^{-2\lambda t}
+\end{align*}
+
+For \( t_1 \leq t_2 \),
+\begin{align*}
+    R\left(t_{1}, t_{2}\right)
+     & =
+    E[X(t_{1})X(t_{2})]
+    =
+    E[(-1)^{N(t_{1})} (-1)^{N(t_{2})}]
+    \\ & =
+    E[(-1)^{N(t_{1})+N(t_{2})}]
+    =
+    E[(-1)^{2N(t_{1})+(N(t_{2})-N(t_{1}))}]
+    \\ & =
+    E[(-1)^{N(t_{2})-N(t_{1})}]
+    =
+    E[(-1)^{N(t_{2}-t_{2})}]
+    =
+    e^{-2\lambda(t_{2}-t_{1})}
+\end{align*}
