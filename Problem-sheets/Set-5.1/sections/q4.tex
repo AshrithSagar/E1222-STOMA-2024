@@ -9,3 +9,48 @@ Show that the chain has unique stationary distribution and find that distributio
     \centering
     \includegraphics[width=0.8\textwidth]{figures/q4/_}
 \end{figure}
+
+The chain is irreducible.
+
+The stationary distribution \( \pi \) if it exists would need to satisfy
+\begin{align*}
+    \pi(y)
+     & =
+    \sum_{x} \pi(x) P(x, y)
+    \\
+    \pi(y)
+     & =
+    \pi(y-1) p
+    \text{ for } y \geq 1
+    \\
+    \implies
+    \pi(y)
+     & =
+    \pi(0) p^{y}
+    \\
+    \sum_{y=0}^{\infty} \pi(y)
+     & =
+    1
+    \implies
+    \sum_{y=0}^{\infty} \pi(0) p^{y}
+    =
+    \pi(0) \sum_{y=0}^{\infty} p^{y}
+    =
+    \pi(0) \frac{1}{1-p}
+    =
+    1
+    \\
+    \implies
+    \pi(0)
+     & =
+    1-p
+    \\
+    \implies
+    \pi(y)
+     & =
+    (1-p) p^{y}
+\end{align*}
+
+Hence, the stationary distribution is geometric with parameter \( p \).
+
+Uniqueness requires that the chain is positive recurrent.
