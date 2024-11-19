@@ -4,3 +4,29 @@ Consider a stochastic process \( X(t)=e^{A t} \) where \( A \) is a continuous r
 Express the mean \( \eta(t) \) and the autocorrelation \( R\left(t_{1}, t_{2}\right) \) in terms of \( f_{A} \).
 
 \subsection*{Solution}
+
+\begin{align*}
+    \implies
+    \eta(t)
+     & =
+    E[X(t)]
+    =
+    E[e^{A t}]
+    =
+    \int_{-\infty}^{\infty} e^{A t} f_{A}(A) \, dA
+    =
+    M_A(t)
+\end{align*}
+
+\begin{align*}
+    \implies
+    R\left(t_{1}, t_{2}\right)
+     & =
+    E[X(t_{1})X(t_{2})]
+    =
+    E[e^{A t_{1}} e^{A t_{2}}]
+    \\ & =
+    E[e^{A(t_{1}+t_{2})}]
+    =
+    M_A(t_{1}+t_{2})
+\end{align*}
