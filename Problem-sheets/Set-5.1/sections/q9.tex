@@ -11,3 +11,23 @@ If yes, find the stationary distribution.
 \end{figure}
 
 \subsection*{Solution}
+
+0 is a recurrent state.
+The chain is irreducible.
+
+Let \( \pi \) be the stationary distribution.
+Then, for all \( k \geq 1 \),
+\begin{align*}
+    \pi(k)
+     & =
+    \sum_{j=0}^{\infty} \pi(j) P(j,k)
+    \\
+    \implies
+    \pi(1)
+     & =
+    \pi(0) P(0,1) + \pi(1) P(1,1) + \pi(2) P(2,1) + \cdots
+    \\ & =
+    \pi(0) q(1) + \pi(2) q(1)
+    \\ & =
+    \pi(0) p + \pi(2) p
+\end{align*}
